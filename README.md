@@ -1,7 +1,13 @@
 # Flatbook
 
 ## What is Flatbook?
-An application where the users can manage the flat and flat listing.
+A social platform which unifies the organisation of a flat by creating a digital
+dashboard to house any announcements, events or to-do lists. Technology used to
+develop this project: React, Auth0, Express.js, Knex.js, SQLite3, Tailwind CSS with
+DaisyUI, Three.js, Auth0 and GitHub.
+
+## Product Demonstration and Project Planning
+https://www.youtube.com/watch?v=_uVYX0sv_zU
 
 ## Planning Board
 https://www.figma.com/board/9Vv9ggCqj6LK3iGUqnH9dR/Dev-code%3A-Flatbook?node-id=2005-3552&node-type=instance&t=J5qvfzbnzaampdER-0
