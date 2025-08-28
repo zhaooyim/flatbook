@@ -19,9 +19,9 @@ vi.mock('@auth0/auth0-react', () => ({
   }),
 }))
 
-describe('CRUD operations', () => {
-  it('deletes a chore', async () => {
-    const createNewChore = nock('http://localhost')
+describe('Delete button test for shopping list', () => {
+  it('deletes a shopping item', async () => {
+    const respDelShoppingItem = nock('http://localhost')
       .delete('/api/v1/shop/1')
       .reply(204)
 
@@ -34,6 +34,6 @@ describe('CRUD operations', () => {
 
     await user.click(getDelItemButton)
 
-    expect(createNewChore.isDone()).toBe(true)
+    expect(respDelShoppingItem.isDone()).toBe(true)
   })
 })

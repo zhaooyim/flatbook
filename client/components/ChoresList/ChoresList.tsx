@@ -1,6 +1,7 @@
 import useChores from '../../hooks/useChores'
 import { Chore } from '../../../types/Chore'
 import { LocalSpinner } from '../UI/WaitingSpinners'
+import RemoveChoreButton from './RemoveChoreButton'
 
 interface Props {
   flatId: string
@@ -32,6 +33,7 @@ export default function ChoresList({ flatId }: Props) {
               <h2 className="collapse-title text-xl font-medium">
                 {chore.title}
               </h2>
+              <RemoveChoreButton flatId={flatId} choreId={chore.id}/>
               <div className="collapse-content">
                 {typeof chore.description === 'string' &&
                 chore.description.length > 0 ? (

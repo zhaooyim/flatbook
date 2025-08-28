@@ -46,4 +46,19 @@ router.post('/:id', async (req, res, next) => {
   }
 })
 
+router.delete('/:flatId', async (req, res) => {
+  try {
+    const flatId = req.params.flatId
+    const { choreId } = req.body
+
+    await db.delChore(+flatId, choreId)
+    res.sendStatus(204)
+
+  } catch (error) {
+    res
+      .status(500)
+      .json({message: 'Unexpected error when deleting a chore item'})
+  }
+})
+
 export default router

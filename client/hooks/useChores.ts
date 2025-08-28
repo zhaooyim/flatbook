@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useAuth0 } from '@auth0/auth0-react'
-import { getChores } from '../apis/chores'
+import { delChore, getChores } from '../apis/chores'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { ChoreData } from '../../types/Chore'
 import { addChore } from '../apis/chores'
@@ -9,6 +9,7 @@ function useChores(flatId: string) {
   const { getAccessTokenSilently } = useAuth0()
   const queryClient = useQueryClient()
 
+  // retrieve chores
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ['chores'],
     queryFn: async () => {
@@ -18,6 +19,7 @@ function useChores(flatId: string) {
     },
   })
 
+  // add chores
   const addMutation = useMutation({
     mutationFn: async (chore: ChoreData) => {
       const accessToken = await getAccessTokenSilently()
@@ -28,7 +30,18 @@ function useChores(flatId: string) {
     },
   })
 
-  return { data, isLoading, isError, error, addMutation }
+  // delete a chore
+  const delMutation = useMutation({
+    mutationFn: async (id: number) => {
+      const accessToken = await getAccessTokenSilently()
+      return await delChore(accessToken, flatId, id)
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['chores'] })
+    }
+  })
+
+  return { data, isLoading, isError, error, addMutation, delMutation }
 }
 
 export default useChores
