@@ -38,7 +38,7 @@ function useChores(flatId: string) {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['chores'] })
-    }
+    },
   })
 
   return { data, isLoading, isError, error, addMutation, delMutation }

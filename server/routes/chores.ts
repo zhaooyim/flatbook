@@ -53,11 +53,10 @@ router.delete('/:flatId', async (req, res) => {
 
     await db.delChore(+flatId, choreId)
     res.sendStatus(204)
-
   } catch (error) {
     res
       .status(500)
-      .json({message: 'Unexpected error when deleting a chore item'})
+      .json({ message: 'Unexpected error when deleting a chore item' })
   }
 })
 

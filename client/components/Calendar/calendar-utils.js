@@ -56,8 +56,20 @@ export const months = [
 
 //TODO: Events are hardcoded so will need to be replaced with a database in the future.
 export const events = [
-  { date: dayjs().toDate().toDateString(), eventName: '[Hardcoded] Flat Viewing' },  // today
-  { date: dayjs().day(0).toDate().toDateString(), eventName: '[Hardcoded] Flat Cleaning' },  // Sunday
-  { date: dayjs().day(3).toDate().toDateString(), eventName: '[Hardcoded] Flat Spring Cleaning' }, // Wednesday
-  { date: dayjs().day(6).toDate().toDateString(), eventName: '[Hardcoded] Flat Game Day' },  // Saturday
+  {
+    date: dayjs().toDate().toDateString(),
+    eventName: '[Hardcoded] Flat Viewing',
+  }, // today
+  {
+    date: dayjs().day(0).toDate().toDateString(),
+    eventName: '[Hardcoded] Flat Cleaning',
+  }, // Sunday
+  {
+    date: dayjs().day(3).toDate().toDateString(),
+    eventName: '[Hardcoded] Flat Spring Cleaning',
+  }, // Wednesday
+  {
+    date: dayjs().day(6).toDate().toDateString(),
+    eventName: '[Hardcoded] Flat Game Day',
+  }, // Saturday
 ]

@@ -1,23 +1,24 @@
-import useChores from "../../hooks/useChores"
+import useChores from '../../hooks/useChores'
 
 interface Props {
-    flatId: string
-    choreId: number
+  flatId: string
+  choreId: number
 }
 
 export default function RemoveChoreButton({ flatId, choreId }: Props) {
-    const { delMutation } = useChores(flatId)
+  const { delMutation } = useChores(flatId)
 
-    const handleRemoveChoreItem = () => {
-        delMutation.mutateAsync(choreId)
-    }
+  const handleRemoveChoreItem = () => {
+    delMutation.mutateAsync(choreId)
+  }
 
-    return (
-        <button
-            onClick={handleRemoveChoreItem}
-            className="btn"
-            data-testid={`remove-chore-item-button`}
-        >
-            Remove
-        </button>)
+  return (
+    <button
+      onClick={handleRemoveChoreItem}
+      className="btn"
+      data-testid={`remove-chore-item-button`}
+    >
+      Remove
+    </button>
+  )
 }
