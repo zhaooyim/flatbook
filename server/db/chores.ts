@@ -33,6 +33,13 @@ export async function addChore(data: ChoreData) {
   )
 }
 
+export async function delChore(flatId: number, choreId: number) {
+  return await db('chores')
+    .where('flat_id', '=', flatId)
+    .where('id', '=', choreId)
+    .delete()
+}
+
 // Getting chore by id to be used for referencing a chore within announcements
 // Not needed for MVP
 

@@ -17,3 +17,11 @@ export async function addChore(token: string, newChore: ChoreData) {
     .set('Authorization', `Bearer ${token}`)
   return res
 }
+
+export async function delChore(token: string, flatId: string, choreId: number) {
+  const res = await request
+    .delete(`${baseUrl}/${flatId}`)
+    .send({ choreId })
+    .set('Authorization', `Bearer ${token}`)
+  return res
+}
